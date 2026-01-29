@@ -1,36 +1,177 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Oldenfyre - Vintage Lighters Website
+
+A modern Awwwards-style frontend website for Oldenfyre, a premium brand selling vintage lighters. The design is cinematic, dark, luxurious, and nostalgic.
+
+## Features
+
+- **Cinematic Design**: Dark, luxurious theme with premium gold accents
+- **Smooth Animations**: Slow scroll-based animations using Lenis
+- **Magnetic Hover Effects**: Interactive buttons that follow cursor movement
+- **Text Reveal Animations**: Staggered text reveals for dramatic effect
+- **Parallax Images**: Smooth parallax scrolling for visual depth
+- **Premium UI Patterns**: Custom cursor, noise texture, gradient effects
+- **Responsive Design**: Fully responsive across all devices
+
+## Tech Stack
+
+- **Next.js 16**: React framework for production
+- **Tailwind CSS 4**: Utility-first CSS framework
+- **Framer Motion**: Production-ready motion library for React
+- **GSAP**: Professional-grade animation for the web
+- **Lenis**: Smooth scroll library
+- **TypeScript**: Type-safe JavaScript
+
+## Project Structure
+
+```
+oldenfyre_frontend/
+├── app/
+│   ├── favicon.ico
+│   ├── globals.css          # Global styles with dark theme
+│   ├── layout.tsx           # Root layout with providers
+│   └── page.tsx             # Main page with all sections
+├── components/
+│   ├── animations/
+│   │   ├── MagneticButton.tsx    # Magnetic hover effect button
+│   │   ├── ParallaxImage.tsx    # Parallax scrolling image
+│   │   ├── ScrollReveal.tsx     # Scroll-triggered animations
+│   │   └── TextReveal.tsx       # Text reveal animations
+│   ├── sections/
+│   │   ├── Collection.tsx       # Product collection section
+│   │   ├── Contact.tsx           # Contact form section
+│   │   ├── Craftsmanship.tsx    # Craftsmanship features
+│   │   ├── Hero.tsx             # Hero section with animations
+│   │   └── Story.tsx            # Brand story section
+│   ├── ui/
+│   │   ├── CustomCursor.tsx     # Custom cursor component
+│   │   ├── Footer.tsx           # Footer component
+│   │   ├── Navigation.tsx       # Navigation component
+│   │   └── SmoothScroll.tsx     # Smooth scroll wrapper
+│   └── SmoothScroll.tsx
+└── public/
+```
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### Start Production Server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Colors
 
-## Deploy on Vercel
+- **Background**: `#0a0a0a` (Dark Black)
+- **Foreground**: `#f5f5f5` (Light Gray)
+- **Gold**: `#c9a962` (Primary Accent)
+- **Gold Light**: `#e8d5a3` (Light Accent)
+- **Gold Dark**: `#8b7355` (Dark Accent)
+- **Charcoal**: `#1a1a1a` (Secondary Background)
+- **Charcoal Light**: `#2a2a2a` (Lighter Background)
+- **Cream**: `#faf8f5` (Light Text)
+- **Cream Dark**: `#e8e4df` (Darker Light Text)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Typography
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Font Family**: Geist Sans (Primary), Geist Mono (Secondary)
+- **Headings**: Large, light weight with tight tracking
+- **Body**: Regular weight with comfortable line height
+- **Accents**: Uppercase with wide letter spacing
+
+### Animations
+
+- **Scroll Duration**: 1.5s (Lenis)
+- **Easing**: Custom cubic-bezier for smooth transitions
+- **Stagger**: 0.12s for text reveals
+- **Parallax Speed**: 0.3-0.5 for images
+
+## Key Components
+
+### Navigation
+
+- Fixed position with backdrop blur on scroll
+- Magnetic brand logo
+- Smooth scroll to sections
+- Mobile responsive menu
+
+### Hero Section
+
+- Full-screen cinematic intro
+- Text reveal animation
+- Decorative geometric elements
+- Scroll indicator
+
+### Story Section
+
+- Asymmetric layout with parallax image
+- Statistics display
+- Brand narrative
+
+### Collection Section
+
+- Grid of product cards
+- Hover effects with image zoom
+- Price and year display
+
+### Craftsmanship Section
+
+- Feature cards with icons
+- Process timeline
+- GSAP scroll-triggered animations
+
+### Contact Section
+
+- Minimal form design
+- Contact information display
+- Newsletter signup
+
+### Footer
+
+- Multi-column layout
+- Social links
+- Newsletter subscription
+
+## Performance Optimizations
+
+- Static page generation
+- Image optimization with Next.js Image component
+- Lazy loading for animations
+- CSS-in-JS with Tailwind CSS
+- Tree-shaking for unused dependencies
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## License
+
+This project is proprietary and confidential.
+
+## Credits
+
+Design and development by Oldenfyre Team.
