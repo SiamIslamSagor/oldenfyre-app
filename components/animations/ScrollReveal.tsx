@@ -27,6 +27,23 @@ export default function ScrollReveal({
   }, [isInView, controls]);
 
   const getVariants = (): Variants => {
+    const hiddenState: Record<string, number> = { opacity: 0 };
+
+    switch (direction) {
+      case "up":
+        hiddenState.y = 60;
+        break;
+      case "down":
+        hiddenState.y = -60;
+        break;
+      case "left":
+        hiddenState.x = 60;
+        break;
+      case "right":
+        hiddenState.x = -60;
+        break;
+    }
+
     const variants: Variants = {
       visible: {
         opacity: 1,
@@ -38,25 +55,8 @@ export default function ScrollReveal({
           ease: [0.25, 0.46, 0.45, 0.94],
         },
       },
-      hidden: {
-        opacity: 0,
-      },
+      hidden: hiddenState,
     };
-
-    switch (direction) {
-      case "up":
-        (variants.hidden as any).y = 60;
-        break;
-      case "down":
-        (variants.hidden as any).y = -60;
-        break;
-      case "left":
-        (variants.hidden as any).x = 60;
-        break;
-      case "right":
-        (variants.hidden as any).x = -60;
-        break;
-    }
 
     return variants;
   };

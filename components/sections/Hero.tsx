@@ -28,14 +28,14 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[var(--background-primary)]" />
+      <div className="absolute inset-0 bg-background-primary" />
       <div className="noise-overlay" />
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 border border-[var(--border-color)] rounded-full hero-line" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 border border-[var(--border-color)] rounded-full hero-line" />
-      <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-[var(--text-primary)] rounded-full hero-line" />
-      <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-[var(--text-secondary)] rounded-full hero-line" />
+      <div className="absolute top-20 left-10 w-32 h-32 border border-border-color rounded-full hero-line" />
+      <div className="absolute bottom-20 right-10 w-48 h-48 border border-border-color rounded-full hero-line" />
+      <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-text-primary rounded-full hero-line" />
+      <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-text-secondary rounded-full hero-line" />
 
       {/* Content */}
       <div className="container relative z-10 text-center px-4">
@@ -45,7 +45,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="mb-8"
         >
-          <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
+          <span className="text-text-secondary uppercase tracking-[0.3em] text-sm">
             Est. 1924
           </span>
         </motion.div>
@@ -75,10 +75,10 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1.8 }}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <MagneticButton className="px-12 py-4 bg-[var(--text-primary)] text-[var(--background-primary)] uppercase tracking-widest text-sm hover:bg-[var(--text-secondary)] transition-colors">
+          <MagneticButton className="px-12 py-4 bg-text-primary text-background-primary uppercase tracking-widest text-sm hover:bg-text-secondary transition-colors">
             Explore Collection
           </MagneticButton>
-          <MagneticButton className="px-12 py-4 border border-[var(--border-color)] text-[var(--text-primary)] uppercase tracking-widest text-sm hover:bg-[var(--background-secondary)] transition-colors">
+          <MagneticButton className="px-12 py-4 border border-border-color text-text-primary uppercase tracking-widest text-sm hover:bg-background-secondary transition-colors">
             Our Story
           </MagneticButton>
         </motion.div>
@@ -92,7 +92,7 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+          <span className="text-xs uppercase tracking-widest text-text-secondary">
             Scroll
           </span>
           <motion.svg
@@ -111,16 +111,16 @@ export default function Hero() {
               x2="12"
               y2="44"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             />
 
             <polyline
               points="6,38 12,44 18,38"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </motion.svg>
         </div>

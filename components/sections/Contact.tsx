@@ -19,13 +19,13 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[var(--background-secondary)]" />
+      <div className="absolute inset-0 bg-background-secondary" />
 
       <div className="container relative z-10 px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
           <ScrollReveal>
-            <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
+            <span className="text-text-secondary uppercase tracking-[0.3em] text-sm">
               Get in Touch
             </span>
           </ScrollReveal>
@@ -35,9 +35,9 @@ export default function Contact() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <p className="text-lg text-[var(--text-secondary)] mt-6 font-light">
-              Whether you're seeking a specific piece or wish to learn more
-              about our craft, we're here to assist.
+            <p className="text-lg text-text-secondary mt-6 font-light">
+              Whether you&apos;re seeking a specific piece or wish to learn more
+              about our craft, we&apos;re here to assist.
             </p>
           </ScrollReveal>
         </div>
@@ -50,7 +50,7 @@ export default function Contact() {
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
-                <label className="text-sm uppercase tracking-widest text-[var(--text-secondary)]">
+                <label className="text-sm uppercase tracking-widest text-text-secondary">
                   Name
                 </label>
                 <input
@@ -59,13 +59,13 @@ export default function Contact() {
                   onChange={e =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-[var(--border-color)] py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-primary)] transition-colors"
+                  className="w-full bg-transparent border-b border-border-color py-4 text-text-primary focus:outline-none focus:border-text-primary transition-colors"
                   placeholder="Your name"
                   required
                 />
               </div>
               <div className="space-y-4">
-                <label className="text-sm uppercase tracking-widest text-[var(--text-secondary)]">
+                <label className="text-sm uppercase tracking-widest text-text-secondary">
                   Email
                 </label>
                 <input
@@ -74,7 +74,7 @@ export default function Contact() {
                   onChange={e =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-[var(--border-color)] py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-primary)] transition-colors"
+                  className="w-full bg-transparent border-b border-border-color py-4 text-text-primary focus:outline-none focus:border-text-primary transition-colors"
                   placeholder="your@email.com"
                   required
                 />
@@ -82,7 +82,7 @@ export default function Contact() {
             </div>
 
             <div className="space-y-4">
-              <label className="text-sm uppercase tracking-widest text-[var(--text-secondary)]">
+              <label className="text-sm uppercase tracking-widest text-text-secondary">
                 Message
               </label>
               <textarea
@@ -91,7 +91,7 @@ export default function Contact() {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 rows={5}
-                className="w-full bg-transparent border-b border-[var(--border-color)] py-4 text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-primary)] transition-colors resize-none"
+                className="w-full bg-transparent border-b border-border-color py-4 text-text-primary focus:outline-none focus:border-text-primary transition-colors resize-none"
                 placeholder="Tell us about your inquiry..."
                 required
               />
@@ -100,7 +100,7 @@ export default function Contact() {
             <div className="text-center pt-8">
               <button
                 type="submit"
-                className="magnetic-button px-12 py-4 bg-[var(--text-primary)] text-[var(--background-primary)] uppercase tracking-widest text-sm hover:bg-[var(--text-secondary)] transition-colors"
+                className="magnetic-button px-12 py-4 bg-text-primary text-background-primary uppercase tracking-widest text-sm hover:bg-text-secondary transition-colors"
               >
                 Send Message
               </button>
@@ -111,34 +111,34 @@ export default function Contact() {
         {/* Contact Info */}
         <ScrollReveal
           delay={0.4}
-          className="mt-20 md:mt-24 pt-16 md:pt-20 border-t border-[var(--border-color)]"
+          className="mt-20 md:mt-24 pt-16 md:pt-20 border-t border-border-color"
         >
           <div className="grid md:grid-cols-3 gap-8 md:gap-12 text-center">
             <div className="space-y-4 px-4">
-              <div className="text-[var(--text-secondary)] text-sm uppercase tracking-widest">
+              <div className="text-text-secondary text-sm uppercase tracking-widest">
                 Visit Us
               </div>
-              <p className="text-[var(--text-secondary)] font-light">
+              <p className="text-text-secondary font-light">
                 123 Heritage Lane
                 <br />
                 London, UK SW1A 1AA
               </p>
             </div>
             <div className="space-y-4 px-4">
-              <div className="text-[var(--text-secondary)] text-sm uppercase tracking-widest">
+              <div className="text-text-secondary text-sm uppercase tracking-widest">
                 Call Us
               </div>
-              <p className="text-[var(--text-secondary)] font-light">
+              <p className="text-text-secondary font-light">
                 +44 20 7123 4567
                 <br />
                 Mon - Fri, 9am - 6pm
               </p>
             </div>
             <div className="space-y-4 px-4">
-              <div className="text-[var(--text-secondary)] text-sm uppercase tracking-widest">
+              <div className="text-text-secondary text-sm uppercase tracking-widest">
                 Email Us
               </div>
-              <p className="text-[var(--text-secondary)] font-light">
+              <p className="text-text-secondary font-light">
                 hello@oldenfyre.com
                 <br />
                 support@oldenfyre.com

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 
 interface TextRevealProps {
   children: string;

@@ -60,13 +60,13 @@ export default function Craftsmanship() {
       className="relative py-24 md:py-32 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[var(--background-primary)]" />
+      <div className="absolute inset-0 bg-background-primary" />
 
       <div className="container relative z-10 px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
           <ScrollReveal>
-            <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
+            <span className="text-text-secondary uppercase tracking-[0.3em] text-sm">
               The Art of Craft
             </span>
           </ScrollReveal>
@@ -84,14 +84,14 @@ export default function Craftsmanship() {
               key={index}
               className="feature-item text-center space-y-6 px-4"
             >
-              <div className="text-5xl text-[var(--text-secondary)]/30">
+              <div className="text-5xl text-text-secondary/30">
                 {feature.icon}
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-light tracking-wide text-[var(--text-primary)]">
+                <h3 className="text-2xl font-light tracking-wide text-text-primary">
                   {feature.title}
                 </h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed font-light">
+                <p className="text-text-secondary leading-relaxed font-light">
                   {feature.description}
                 </p>
               </div>
@@ -103,7 +103,7 @@ export default function Craftsmanship() {
         <div>
           <ScrollReveal>
             <div className="text-center mb-16">
-              <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
+              <span className="text-text-secondary uppercase tracking-[0.3em] text-sm">
                 The Process
               </span>
               <h3 className="text-3xl md:text-4xl font-light tracking-tight mt-4">
@@ -116,13 +116,13 @@ export default function Craftsmanship() {
             {["Design", "Prototype", "Craft", "Polish"].map((step, index) => (
               <ScrollReveal key={step} delay={index * 0.1}>
                 <div className="text-center space-y-4 px-4">
-                  <div className="text-6xl font-light text-[var(--text-secondary)]/20">
+                  <div className="text-6xl font-light text-text-secondary/20">
                     0{index + 1}
                   </div>
-                  <h4 className="text-xl font-light tracking-wide text-[var(--text-primary)]">
+                  <h4 className="text-xl font-light tracking-wide text-text-primary">
                     {step}
                   </h4>
-                  <div className="w-px h-16 bg-gradient-to-b from-[var(--text-primary)] to-transparent mx-auto" />
+                  <div className="w-px h-16 bg-linear-to-b from-text-primary to-transparent mx-auto" />
                 </div>
               </ScrollReveal>
             ))}

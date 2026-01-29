@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import MagneticButton from "../animations/MagneticButton";
 import ThemeToggle from "./ThemeToggle";
+import { motion } from "framer-motion";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,15 +19,18 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav
+    <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[var(--background-primary)]/80 backdrop-blur-md py-4"
-          : "bg-transparent py-6"
+          ? "bg-background-primary/80 backdrop-blur-md"
+          : "bg-transparent"
       }`}
+      animate={{
+        paddingBlock: scrolled ? 12 : 24,
+      }}
     >
       <div className="container flex items-center justify-between">
-        <MagneticButton className="text-2xl font-bold tracking-wider text-[var(--text-primary)] px-4 py-2">
+        <MagneticButton className="text-2xl font-bold tracking-wider text-text-primary px-4 py-2">
           OLDENFYRE
         </MagneticButton>
 
@@ -35,7 +39,7 @@ export default function Navigation() {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors line-animation px-4 py-2"
+              className="text-sm uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors line-animation px-4 py-2"
             >
               {item}
             </a>
@@ -48,7 +52,7 @@ export default function Navigation() {
           </div>
 
           <button
-            className="md:hidden text-[var(--text-primary)] p-2"
+            className="md:hidden text-text-primary p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <svg
@@ -72,12 +76,12 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[var(--background-primary)]/95 backdrop-blur-md py-12 px-6">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background-primary/95 backdrop-blur-md py-12 px-6">
           {["Collection", "Story", "Craftsmanship", "Contact"].map(item => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="block py-4 text-lg uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors px-4"
+              className="block py-4 text-lg uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors px-4"
               onClick={() => setMenuOpen(false)}
             >
               {item}
@@ -85,6 +89,6 @@ export default function Navigation() {
           ))}
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }

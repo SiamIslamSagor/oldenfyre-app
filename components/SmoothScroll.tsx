@@ -15,6 +15,7 @@ export default function SmoothScroll({
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       }}
     >
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       {children as any}
     </Lenis>
   );

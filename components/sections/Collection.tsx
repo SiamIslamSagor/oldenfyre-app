@@ -3,6 +3,7 @@
 import ScrollReveal from "../animations/ScrollReveal";
 import MagneticButton from "../animations/MagneticButton";
 import { useState } from "react";
+import Image from "next/image";
 
 const lighters = [
   {
@@ -43,13 +44,13 @@ export default function Collection() {
       className="relative py-24 md:py-32 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[var(--background-primary)]" />
+      <div className="absolute inset-0 bg-background-primary" />
 
       <div className="container relative z-10 px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
           <ScrollReveal>
-            <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
+            <span className="text-text-secondary uppercase tracking-[0.3em] text-sm">
               Featured Collection
             </span>
           </ScrollReveal>
@@ -65,45 +66,46 @@ export default function Collection() {
           {lighters.map((lighter, index) => (
             <ScrollReveal key={lighter.id} delay={index * 0.1}>
               <div
-                className="group relative cursor-pointer bg-[var(--surface-color)] p-6"
+                className="group relative cursor-pointer bg-surface-color p-6"
                 onMouseEnter={() => setHoveredId(lighter.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
                 {/* Image Container */}
-                <div className="aspect-[3/4] overflow-hidden mb-6 glow">
-                  <img
+                <div className="aspect-3/4 overflow-hidden mb-6 glow relative">
+                  <Image
                     src={lighter.image}
                     alt={lighter.name}
-                    className={`w-full h-full object-cover transition-transform duration-700 ${
+                    fill
+                    className={`object-cover transition-transform duration-700 ${
                       hoveredId === lighter.id ? "scale-110" : "scale-100"
                     }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--background-primary)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background-primary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 {/* Content */}
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-xl font-light tracking-wide text-[var(--text-primary)]">
+                      <h3 className="text-xl font-light tracking-wide text-text-primary">
                         {lighter.name}
                       </h3>
-                      <p className="text-[var(--text-secondary)] text-sm">
+                      <p className="text-text-secondary text-sm">
                         {lighter.year}
                       </p>
                     </div>
-                    <span className="text-[var(--text-primary)] font-light">
+                    <span className="text-text-primary font-light">
                       {lighter.price}
                     </span>
                   </div>
-                  <p className="text-[var(--text-secondary)] text-sm font-light">
+                  <p className="text-text-secondary text-sm font-light">
                     {lighter.description}
                   </p>
                 </div>
 
                 {/* Hover Effect */}
                 <div
-                  className={`absolute inset-0 border border-[var(--border-color)] transition-opacity duration-500 ${
+                  className={`absolute inset-0 border border-border-color transition-opacity duration-500 ${
                     hoveredId === lighter.id ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -114,7 +116,7 @@ export default function Collection() {
 
         {/* CTA */}
         <ScrollReveal delay={0.4} className="text-center mt-12 md:mt-16">
-          <MagneticButton className="px-12 py-4 bg-transparent border border-[var(--border-color)] text-[var(--text-primary)] uppercase tracking-widest text-sm hover:bg-[var(--background-secondary)] transition-colors">
+          <MagneticButton className="px-12 py-4 bg-transparent border border-border-color text-text-primary uppercase tracking-widest text-sm hover:bg-background-secondary transition-colors">
             View Full Collection
           </MagneticButton>
         </ScrollReveal>
