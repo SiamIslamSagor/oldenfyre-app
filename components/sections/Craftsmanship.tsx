@@ -57,14 +57,14 @@ export default function Craftsmanship() {
     <section
       id="craftsmanship"
       ref={sectionRef}
-      className="relative py-32 overflow-hidden"
+      className="relative py-24 md:py-32 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background-primary)]" />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 md:mb-20">
           <ScrollReveal>
             <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
               The Art of Craft
@@ -78,9 +78,12 @@ export default function Craftsmanship() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-24 md:mb-32">
           {features.map((feature, index) => (
-            <div key={index} className="feature-item text-center space-y-6">
+            <div
+              key={index}
+              className="feature-item text-center space-y-6 px-4"
+            >
               <div className="text-5xl text-[var(--text-secondary)]/30">
                 {feature.icon}
               </div>
@@ -97,7 +100,7 @@ export default function Craftsmanship() {
         </div>
 
         {/* Process Section */}
-        <div className="mt-32">
+        <div>
           <ScrollReveal>
             <div className="text-center mb-16">
               <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
@@ -109,10 +112,10 @@ export default function Craftsmanship() {
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-6 md:gap-8">
             {["Design", "Prototype", "Craft", "Polish"].map((step, index) => (
               <ScrollReveal key={step} delay={index * 0.1}>
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-4 px-4">
                   <div className="text-6xl font-light text-[var(--text-secondary)]/20">
                     0{index + 1}
                   </div>

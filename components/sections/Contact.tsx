@@ -17,13 +17,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden">
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background-secondary)]" />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 md:mb-20">
           <ScrollReveal>
             <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
               Get in Touch
@@ -44,7 +44,10 @@ export default function Contact() {
 
         {/* Form */}
         <ScrollReveal delay={0.3}>
-          <form onSubmit={handleSubmit} className="space-y-8 max-w-2xl mx-auto">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-8 max-w-2xl mx-auto px-4"
+          >
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <label className="text-sm uppercase tracking-widest text-[var(--text-secondary)]">
@@ -108,10 +111,10 @@ export default function Contact() {
         {/* Contact Info */}
         <ScrollReveal
           delay={0.4}
-          className="mt-20 pt-20 border-t border-[var(--border-color)]"
+          className="mt-20 md:mt-24 pt-16 md:pt-20 border-t border-[var(--border-color)]"
         >
-          <div className="grid md:grid-cols-3 gap-12 text-center">
-            <div className="space-y-4">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 text-center">
+            <div className="space-y-4 px-4">
               <div className="text-[var(--text-secondary)] text-sm uppercase tracking-widest">
                 Visit Us
               </div>
@@ -121,7 +124,7 @@ export default function Contact() {
                 London, UK SW1A 1AA
               </p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 px-4">
               <div className="text-[var(--text-secondary)] text-sm uppercase tracking-widest">
                 Call Us
               </div>
@@ -131,7 +134,7 @@ export default function Contact() {
                 Mon - Fri, 9am - 6pm
               </p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 px-4">
               <div className="text-[var(--text-secondary)] text-sm uppercase tracking-widest">
                 Email Us
               </div>

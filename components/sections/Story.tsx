@@ -5,12 +5,12 @@ import ParallaxImage from "../animations/ParallaxImage";
 
 export default function Story() {
   return (
-    <section id="story" className="relative py-32 overflow-hidden">
+    <section id="story" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background-secondary)]" />
 
-      <div className="container relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="container relative z-10 px-4 md:px-6">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Image Side */}
           <ScrollReveal direction="left" className="relative">
             <div className="aspect-[4/5] overflow-hidden glow">
@@ -25,7 +25,7 @@ export default function Story() {
           </ScrollReveal>
 
           {/* Text Side */}
-          <div className="space-y-8">
+          <div className="space-y-8 px-4">
             <ScrollReveal delay={0.2}>
               <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
                 Our Heritage
@@ -42,9 +42,9 @@ export default function Story() {
             <ScrollReveal delay={0.4}>
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed font-light">
                 Since 1924, Oldenfyre has been crafting lighters that transcend
-                time. Each piece is a testament to the artistry and dedication
-                of our master craftsmen, who have passed down their secrets
-                through generations.
+                time. Each piece is a testament to artistry and dedication of
+                our master craftsmen, who have passed down their secrets through
+                generations.
               </p>
             </ScrollReveal>
 
@@ -59,7 +59,7 @@ export default function Story() {
 
             <ScrollReveal delay={0.6}>
               <div className="flex items-center gap-8 pt-8 border-t border-[var(--border-color)]">
-                <div>
+                <div className="px-4">
                   <div className="text-4xl font-light text-[var(--text-primary)]">
                     100
                   </div>
@@ -67,7 +67,7 @@ export default function Story() {
                     Years of Craft
                   </div>
                 </div>
-                <div>
+                <div className="px-4">
                   <div className="text-4xl font-light text-[var(--text-primary)]">
                     50K+
                   </div>

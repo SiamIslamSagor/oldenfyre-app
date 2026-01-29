@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background-primary)]" />
@@ -38,7 +38,7 @@ export default function Hero() {
       <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-[var(--text-secondary)] rounded-full hero-line" />
 
       {/* Content */}
-      <div className="container relative z-10 text-center">
+      <div className="container relative z-10 text-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,9 +61,9 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="max-w-2xl mx-auto mb-12"
+          className="max-w-2xl mx-auto mb-12 px-4"
         >
-          <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-text-secondary leading-relaxed font-light">
             Crafted with passion, ignited with nostalgia. Discover our
             collection of premium vintage lighters.
           </p>

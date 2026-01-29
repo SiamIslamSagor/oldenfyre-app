@@ -4,14 +4,14 @@ import MagneticButton from "../animations/MagneticButton";
 
 export default function Footer() {
   return (
-    <footer className="relative py-16 border-t border-[var(--border-color)]">
+    <footer className="relative py-16 md:py-20 border-t border-[var(--border-color)]">
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background-primary)]" />
 
-      <div className="container relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+      <div className="container relative z-10 px-4 md:px-6">
+        <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-16">
           {/* Brand */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col items-center">
             <h3 className="text-2xl font-bold tracking-wider text-[var(--text-primary)]">
               OLDENFYRE
             </h3>

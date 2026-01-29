@@ -26,16 +26,16 @@ export default function Navigation() {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <MagneticButton className="text-2xl font-bold tracking-wider text-[var(--text-primary)]">
+        <MagneticButton className="text-2xl font-bold tracking-wider text-[var(--text-primary)] px-4 py-2">
           OLDENFYRE
         </MagneticButton>
 
-        <div className="hidden md:flex items-center space-x-12">
+        <div className="hidden md:flex items-center space-x-8">
           {["Collection", "Story", "Craftsmanship", "Contact"].map(item => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors line-animation"
+              className="text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors line-animation px-4 py-2"
             >
               {item}
             </a>
@@ -43,10 +43,12 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center gap-6">
-          <ThemeToggle />
+          <div className="px-2">
+            <ThemeToggle />
+          </div>
 
           <button
-            className="md:hidden text-[var(--text-primary)]"
+            className="md:hidden text-[var(--text-primary)] p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <svg
@@ -70,12 +72,12 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[var(--background-primary)]/95 backdrop-blur-md py-8 px-6">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[var(--background-primary)]/95 backdrop-blur-md py-12 px-6">
           {["Collection", "Story", "Craftsmanship", "Contact"].map(item => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="block py-4 text-lg uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="block py-4 text-lg uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors px-4"
               onClick={() => setMenuOpen(false)}
             >
               {item}

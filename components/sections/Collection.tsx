@@ -21,7 +21,7 @@ const lighters = [
     price: "$1,200",
     image:
       "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=600&auto=format&fit=crop&q=80",
-    description: "Refined sophistication for the discerning",
+    description: "Refined sophistication for discerning",
   },
   {
     id: 3,
@@ -38,13 +38,16 @@ export default function Collection() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section id="collection" className="relative py-32 overflow-hidden">
+    <section
+      id="collection"
+      className="relative py-24 md:py-32 overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background-primary)]" />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 md:mb-20">
           <ScrollReveal>
             <span className="text-[var(--text-secondary)] uppercase tracking-[0.3em] text-sm">
               Featured Collection
@@ -58,7 +61,7 @@ export default function Collection() {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {lighters.map((lighter, index) => (
             <ScrollReveal key={lighter.id} delay={index * 0.1}>
               <div
@@ -110,7 +113,7 @@ export default function Collection() {
         </div>
 
         {/* CTA */}
-        <ScrollReveal delay={0.4} className="text-center mt-16">
+        <ScrollReveal delay={0.4} className="text-center mt-12 md:mt-16">
           <MagneticButton className="px-12 py-4 bg-transparent border border-[var(--border-color)] text-[var(--text-primary)] uppercase tracking-widest text-sm hover:bg-[var(--background-secondary)] transition-colors">
             View Full Collection
           </MagneticButton>
