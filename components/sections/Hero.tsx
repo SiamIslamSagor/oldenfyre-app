@@ -95,11 +95,34 @@ export default function Hero() {
           <span className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
             Scroll
           </span>
-          <motion.div
+          <motion.svg
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-12 bg-gradient-to-b from-[var(--text-primary)] to-transparent"
-          />
+            width="24"
+            height="60"
+            viewBox="0 0 24 60"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            className="mt-2 animate-bounce"
+          >
+            <line
+              x1="12"
+              y1="4"
+              x2="12"
+              y2="44"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+            <polyline
+              points="6,38 12,44 18,38"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </motion.svg>
         </div>
       </motion.div>
     </section>
