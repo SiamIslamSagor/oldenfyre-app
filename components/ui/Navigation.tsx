@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import MagneticButton from "../animations/MagneticButton";
 import ThemeToggle from "./ThemeToggle";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,9 +31,11 @@ export default function Navigation() {
       }}
     >
       <div className="container flex items-center justify-between">
-        <MagneticButton className="text-2xl font-bold tracking-wider text-text-primary px-4 py-2">
-          OLDENFYRE
-        </MagneticButton>
+        <Link href={"/"}>
+          <MagneticButton className="text-2xl font-bold tracking-wider text-text-primary px-4 py-2">
+            OLDENFYRE
+          </MagneticButton>
+        </Link>
 
         <div className="hidden md:flex items-center space-x-8">
           {["Collection", "Story", "Limited-edition", "Contact"].map(item => (

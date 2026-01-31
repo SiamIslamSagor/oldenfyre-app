@@ -403,3 +403,308 @@ section {
 .focus-ring {
   animation: focusRing 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
+
+/* ========================================
+   Creative Page (V2) Advanced Animations
+   ======================================== */
+
+/* Kinetic text reveal */
+@keyframes kineticReveal {
+  0% {
+    transform: translateY(200px) rotate(15deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.kinetic-text {
+  animation: kineticReveal 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Morphing shape animation */
+@keyframes morphShape {
+  0%,
+  100% {
+    border-radius: 50%;
+  }
+  50% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  }
+}
+
+.morph-bg {
+  animation: morphShape 8s ease-in-out infinite;
+}
+
+/* Float animation for particles */
+@keyframes floatParticle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.float-particle {
+  animation: floatParticle 3s ease-in-out infinite;
+}
+
+/* Diagonal reveal animation */
+@keyframes diagonalReveal {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 55% 0, 45% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.diagonal-reveal {
+  animation: diagonalReveal 2s ease-in-out infinite;
+}
+
+/* Gallery float animation */
+@keyframes galleryFloat {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-40px) translateX(20px);
+  }
+}
+
+.gallery-float {
+  animation: galleryFloat 5s ease-in-out infinite;
+}
+
+/* Story point animation */
+@keyframes storyPointPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.story-point {
+  animation: storyPointPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Cursor follower */
+.cursor-follower {
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+/* Spec float animation */
+@keyframes specFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.spec-float {
+  animation: specFloat 4s ease-in-out infinite;
+}
+
+/* Spec pulse animation */
+@keyframes specPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.spec-pulse {
+  animation: specPulse 2s ease-in-out infinite;
+}
+
+/* Spec rotate animation */
+@keyframes specRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spec-rotate {
+  animation: specRotate 20s linear infinite;
+}
+
+/* CTA morph animation */
+@keyframes ctaMorph {
+  0%,
+  100% {
+    border-radius: 50%;
+  }
+  50% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  }
+}
+
+.cta-morph {
+  animation: ctaMorph 8s ease-in-out infinite;
+}
+
+/* CTA float animation */
+@keyframes ctaFloat {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-60px) translateX(40px);
+  }
+}
+
+.cta-float {
+  animation: ctaFloat 6s ease-in-out infinite;
+}
+
+/* CTA text distortion */
+@keyframes ctaTextDistort {
+  0%,
+  100% {
+    transform: skewX(0deg);
+  }
+  50% {
+    transform: skewX(5deg);
+  }
+}
+
+.cta-text {
+  animation: ctaTextDistort 3s ease-in-out infinite;
+}
+
+/* CTA pulse animation */
+@keyframes ctaPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.cta-pulse {
+  animation: ctaPulse 2s ease-in-out infinite;
+}
+
+/* 3D perspective container */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Card 3D effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-3d:hover {
+  transform: rotateY(10deg) rotateX(-5deg);
+}
+
+/* Smooth clip-path transitions */
+.clip-transition {
+  transition: clip-path 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Magnetic button enhancement */
+.magnetic-button-enhanced {
+  transition:
+    transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.magnetic-button-enhanced:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Timeline line animation */
+@keyframes timelineGrow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.story-timeline {
+  animation: timelineGrow 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Parallax layer effect */
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Text gradient reveal */
+@keyframes gradientReveal {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.gradient-text-reveal {
+  background-size: 200% auto;
+  animation: gradientReveal 3s ease-out forwards;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth scroll behavior for creative page */
+.creative-page {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for creative page */
+.creative-page ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.creative-page ::-webkit-scrollbar-track {
+  background: var(--background-primary);
+}
+
+.creative-page ::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 3px;
+}
+
+.creative-page ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
