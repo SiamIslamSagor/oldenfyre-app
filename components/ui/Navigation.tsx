@@ -35,10 +35,10 @@ export default function Navigation() {
         </MagneticButton>
 
         <div className="hidden md:flex items-center space-x-8">
-          {["Collection", "Story", "Craftsmanship", "Contact"].map(item => (
+          {["Collection", "Story", "Limited-edition", "Contact"].map(item => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`/${item.toLowerCase()}`}
               className="text-sm uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors line-animation px-4 py-2"
             >
               {item}
