@@ -219,7 +219,7 @@ export default function SplitReveal() {
                   scale: activeProduct === product.id ? 1.05 : 1,
                 }}
                 transition={{ duration: 0.9 }}
-                className={`relative overflow-hidden transition-all `}
+                className="relative overflow-hidden transition-all"
                 style={{
                   transform: `rotateY(${mouseX.get() * 8}deg) rotateX(${-mouseY.get() * 8}deg)`,
                 }}
@@ -263,21 +263,13 @@ export default function SplitReveal() {
                   </motion.div> */}
 
                   {/* Product Image */}
-                  <motion.div
-                    className="rotate-3d w-full  mb-6 flex items-center justify-center"
-                    animate={{ rotateY: [0, 10, -10, 0] }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
+                  <div className="product-image-reveal w-full mb-6 overflow-hidden relative">
                     <img
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover"
                     />
-                  </motion.div>
+                  </div>
 
                   {/* Product Name */}
                   <motion.h3
