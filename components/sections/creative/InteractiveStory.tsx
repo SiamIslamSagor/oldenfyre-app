@@ -10,6 +10,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { gsap } from "gsap";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
  * InteractiveStory - Cursor Tracking Story Section
@@ -141,20 +142,22 @@ export default function InteractiveStory() {
     >
       <motion.div style={{ opacity }} className="container px-4">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-24"
-        >
-          <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-            Our Journey
-          </span>
-          <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
-            A Century of Fire
-          </h2>
-        </motion.div>
+        <BottomToTopReveal className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 90 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
+              Our Journey
+            </span>
+            <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
+              A Century of Fire
+            </h2>
+          </motion.div>
+        </BottomToTopReveal>
 
         {/* Interactive Map */}
         <div className="relative max-w-6xl mx-auto">

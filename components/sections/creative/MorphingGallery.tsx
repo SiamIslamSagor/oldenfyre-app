@@ -8,6 +8,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { gsap } from "gsap";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
  * MorphingGallery - Transition Effects Gallery
@@ -149,20 +150,22 @@ export default function MorphingGallery() {
         />
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-            The Journey
-          </span>
-          <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
-            From Spark to Legacy
-          </h2>
-        </motion.div>
+        <BottomToTopReveal className="mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 90 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center "
+          >
+            <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
+              The Journey
+            </span>
+            <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
+              From Spark to Legacy
+            </h2>
+          </motion.div>
+        </BottomToTopReveal>
 
         {/* Gallery Container */}
         <div className="relative max-w-5xl mx-auto">

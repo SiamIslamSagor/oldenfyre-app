@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { gsap } from "gsap";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
  * FloatingSpecs - 3D-like Floating Specifications
@@ -134,20 +135,22 @@ export default function FloatingSpecs() {
           style={{ perspective: "1000px" }}
         >
           {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-24"
-          >
-            <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-              Specifications
-            </span>
-            <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
-              Built to Perfection
-            </h2>
-          </motion.div>
+          <BottomToTopReveal className=" mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 90 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
+                Specifications
+              </span>
+              <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
+                Built to Perfection
+              </h2>
+            </motion.div>
+          </BottomToTopReveal>
 
           {/* Floating Specs Grid */}
           <div className="relative h-[600px]">

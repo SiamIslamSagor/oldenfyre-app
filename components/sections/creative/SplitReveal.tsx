@@ -10,6 +10,8 @@ import {
 } from "framer-motion";
 import { gsap } from "gsap";
 import MagneticButton from "@/components/animations/MagneticButton";
+import Image from "next/image";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
  * SplitReveal - Modern Product Reveal Section
@@ -149,20 +151,22 @@ export default function SplitReveal() {
     >
       <motion.div style={{ opacity, scale }} className="container px-4">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="text-center mb-20"
-        >
-          <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-            The Collection
-          </span>
-          <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
-            Two Masterpieces
-          </h2>
-        </motion.div>
+        <BottomToTopReveal className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 90 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-center"
+          >
+            <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
+              The Collection
+            </span>
+            <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
+              Two Masterpieces
+            </h2>
+          </motion.div>
+        </BottomToTopReveal>
 
         {/* View Toggle */}
         <motion.div
@@ -206,9 +210,9 @@ export default function SplitReveal() {
             <motion.div
               key={product.id}
               className="product-card relative"
-              initial={{ opacity: 0, y: 100, rotate: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              // viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 1, delay: index * 0.15 }}
               onMouseEnter={() => setActiveProduct(product.id)}
               onMouseLeave={() => setActiveProduct(null)}
@@ -249,22 +253,11 @@ export default function SplitReveal() {
                     </div>
                   </motion.div>
 
-                  {/* Product Icon */}
-                  {/* <motion.div
-                    className="rotate-3d w-24 h-24 mb-6 flex items-center justify-center"
-                    animate={{ rotateY: [0, 10, -10, 0] }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <span className="text-5xl">{product.icon}</span>
-                  </motion.div> */}
-
                   {/* Product Image */}
                   <div className="product-image-reveal w-full mb-6 overflow-hidden relative">
-                    <img
+                    <Image
+                      width={1000}
+                      height={1000}
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover"
@@ -272,42 +265,51 @@ export default function SplitReveal() {
                   </div>
 
                   {/* Product Name */}
-                  <motion.h3
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-3xl md:text-4xl font-light tracking-tight mb-3"
-                  >
-                    {product.name}
-                  </motion.h3>
+                  <div className="overflow-hidden mb-3">
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                      className="text-3xl md:text-4xl font-light tracking-tight"
+                    >
+                      {product.name}
+                    </motion.h3>
+                  </div>
 
                   {/* Description */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="text-base text-text-secondary font-light mb-6"
-                  >
-                    {product.description}
-                  </motion.p>
+                  <div className="overflow-hidden mb-6">
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                      className="text-base text-text-secondary font-light "
+                    >
+                      {product.description}
+                    </motion.p>
+                  </div>
 
                   {/* Price & Edition */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="flex items-center gap-4"
-                  >
-                    <span className="text-2xl md:text-3xl font-light">
-                      {product.price}
-                    </span>
-                    <span className="text-sm text-text-secondary">
-                      {product.edition}
-                    </span>
-                  </motion.div>
+
+                  <BottomToTopReveal className={""}>
+                    {/* <div className="overflow-hidden mb-3"> */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.2, delay: 0.9 }}
+                      className="flex items-center gap-4"
+                    >
+                      <span className="text-2xl md:text-3xl font-light">
+                        {product.price}
+                      </span>
+                      <span className="text-sm text-text-secondary">
+                        {product.edition}
+                      </span>
+                    </motion.div>
+                    {/* </div> */}
+                  </BottomToTopReveal>
 
                   {/* CTA Button */}
                   <motion.div
