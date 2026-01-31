@@ -1,15 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  AnimatePresence,
-} from "framer-motion";
+import { useViewportSize } from "@/hooks/useViewPortSize";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { gsap } from "gsap";
-import TextReveal from "@/components/animations/TextReveal";
+import { useEffect, useRef } from "react";
 
 /**
  * ImmersiveHero - Experimental Typography Hero
@@ -21,12 +15,10 @@ import TextReveal from "@/components/animations/TextReveal";
  * - Scroll-triggered text distortions
  * - Immersive depth effects
  */
-const heroWords = ["LIMITED", "EDITION", "TWO", "ONLY"];
+const heroText = "LIMITED EDITION";
 
 export default function ImmersiveHero() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  const [activeWord, setActiveWord] = useState<number>(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -35,15 +27,19 @@ export default function ImmersiveHero() {
 
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, 15]);
   const rotateY = useTransform(scrollYProgress, [0, 1], [0, -10]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 2.97]);
 
   const springConfig = { damping: 30, stiffness: 150 };
   const mouseX = useSpring(0, springConfig);
   const mouseY = useSpring(0, springConfig);
 
+  const { width, height } = useViewportSize();
+
+  const x = useTransform(mouseX, v => v * width);
+  const y = useTransform(mouseY, v => v * height);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
       mouseX.set(e.clientX / window.innerWidth - 0.5);
       mouseY.set(e.clientY / window.innerHeight - 0.5);
     };
@@ -97,14 +93,8 @@ export default function ImmersiveHero() {
       });
     }, sectionRef);
 
-    // Auto-rotate words
-    const interval = setInterval(() => {
-      setActiveWord(prev => (prev + 1) % heroWords.length);
-    }, 3000);
-
     return () => {
       ctx.revert();
-      clearInterval(interval);
     };
   }, []);
 
@@ -118,11 +108,11 @@ export default function ImmersiveHero() {
         {/* Morphing Shapes */}
         <div className="morph-shape absolute top-1/4 left-1/4 w-96 h-96 bg-text-primary/5 blur-3xl" />
         <div
-          className="morph-shape absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-text-secondary/5 blur-3xl"
+          className="morph-shape absolute bottom-1/4 right-1/4 w-125 h-125 bg-text-secondary/5 blur-3xl"
           style={{ animationDelay: "2s" }}
         />
         <div
-          className="morph-shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-text-primary/3 blur-3xl"
+          className="morph-shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-text-primary/3 blur-3xl"
           style={{ animationDelay: "4s" }}
         />
       </div>
@@ -166,20 +156,25 @@ export default function ImmersiveHero() {
       >
         {/* Kinetic Typography */}
         <div className="relative h-[60vh] flex items-center justify-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeWord}
-              initial={{ opacity: 0, y: 100, rotate: -10 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              exit={{ opacity: 0, y: -100, rotate: 10 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="absolute"
-            >
-              <h1 className="kinetic-text text-[15vw] md:text-[12vw] lg:text-[10vw] font-light tracking-tighter leading-none">
-                {heroWords[activeWord]}
-              </h1>
-            </motion.div>
-          </AnimatePresence>
+          <div className="overflow-hidden">
+            <h1 className="kinetic-text  text-[15vw] md:text-[12vw] lg:text-[10vw] max-md:text-[12vw] font-light tracking-tighter leading-none">
+              {heroText.split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 100, rotate: 15, scale: 0.5 }}
+                  animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.08,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </h1>
+          </div>
         </div>
 
         {/* Subtitle with Distortion Effect */}
@@ -218,8 +213,8 @@ export default function ImmersiveHero() {
       <motion.div
         className="pointer-events-none fixed w-8 h-8 border border-text-primary/30 rounded-full z-50"
         style={{
-          x: useTransform(mouseX, v => v * window.innerWidth),
-          y: useTransform(mouseY, v => v * window.innerHeight),
+          x,
+          y,
         }}
       />
 

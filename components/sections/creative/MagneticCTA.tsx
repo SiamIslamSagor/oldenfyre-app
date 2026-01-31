@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { gsap } from "gsap";
 import MagneticButton from "@/components/animations/MagneticButton";
+import { useViewportSize } from "@/hooks/useViewPortSize";
 
 /**
  * MagneticCTA - Distortion Effects CTA Section
@@ -35,6 +36,11 @@ export default function MagneticCTA() {
   const springConfig = { damping: 30, stiffness: 150 };
   const mouseX = useSpring(0, springConfig);
   const mouseY = useSpring(0, springConfig);
+
+  const { width, height } = useViewportSize();
+
+  const x = useTransform(mouseX, v => (v * width) / 2);
+  const y = useTransform(mouseY, v => (v * height) / 2);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -217,8 +223,8 @@ export default function MagneticCTA() {
         <motion.div
           className="pointer-events-none fixed w-12 h-12 border-2 border-text-primary/20 rounded-full z-50"
           style={{
-            x: useTransform(mouseX, v => (v * window.innerWidth) / 2),
-            y: useTransform(mouseY, v => (v * window.innerHeight) / 2),
+            x,
+            y,
             opacity: useTransform(mouseX, v => Math.abs(v) * 0.5 + 0.2),
           }}
         />
