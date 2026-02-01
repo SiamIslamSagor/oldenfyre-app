@@ -38,7 +38,7 @@ export default function Navigation() {
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
-          {["Collection", "Story", "Limited-edition", "Contact"].map(item => (
+          {["Limited-edition", "Collection", "Story", "Contact"].map(item => (
             <a
               key={item}
               href={`/${item.toLowerCase()}`}

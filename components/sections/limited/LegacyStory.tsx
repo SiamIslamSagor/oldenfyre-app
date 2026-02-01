@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TextReveal from "@/components/animations/TextReveal";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,19 +87,23 @@ export default function LegacyStory() {
       <div className="noise-overlay" />
 
       {/* Section Header */}
-      <div className="container px-4 mb-24">
-        <ScrollReveal direction="up" delay={0.1} className="text-center">
+
+      <BottomToTopReveal className="container px-4 mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 90 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center"
+        >
           <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
             Our Heritage
           </span>
-          <TextReveal
-            delay={0.2}
-            className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter"
-          >
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter mb-6">
             A Century of Fire
-          </TextReveal>
-        </ScrollReveal>
-      </div>
+          </h2>
+        </motion.div>
+      </BottomToTopReveal>
 
       {/* Timeline */}
       <div ref={timelineRef} className="container px-4 relative">

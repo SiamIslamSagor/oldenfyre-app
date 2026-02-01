@@ -14,7 +14,7 @@ import { gsap } from "gsap";
 import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
- * FloatingSpecs - 3D-like Floating Specifications
+ * FloatingSpecs - 3D-like Floating User Reviews
  *
  * Awwwards-winning approach with:
  * - Advanced 3D perspective transforms
@@ -30,32 +30,32 @@ import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 const specs = [
   {
     id: 1,
-    title: "47 Hours",
-    subtitle: "Hand Polish",
+    title: "Michael R.",
+    subtitle: "Verified Buyer",
     description:
-      "Each piece undergoes 47 hours of meticulous hand polishing by master craftsmen.",
-    icon: "✨",
+      "The craftsmanship is absolutely stunning. Every detail speaks to the quality and dedication that went into creating this masterpiece. Worth every penny!",
+    icon: "⭐",
     color: "from-amber-500/20 via-orange-500/20 to-red-500/20",
     glow: "shadow-amber-500/20",
     position: { x: -20, y: -15, z: 1 },
   },
   {
     id: 2,
-    title: "Swiss Made",
-    subtitle: "Ignition System",
+    title: "Sarah L.",
+    subtitle: "Verified Buyer",
     description:
-      "Precision-engineered piezoelectric ignition system, guaranteed for life.",
-    icon: "⚙️",
+      "I've owned many lighters over the years, but nothing compares to this. The ignition is flawless every single time, and it's become a conversation starter.",
+    icon: "💫",
     color: "from-blue-500/20 via-indigo-500/20 to-purple-500/20",
     glow: "shadow-blue-500/20",
     position: { x: 20, y: -8, z: 2 },
   },
   {
     id: 3,
-    title: "3,000+",
-    subtitle: "Ignitions",
+    title: "James T.",
+    subtitle: "Verified Buyer",
     description:
-      "Advanced fuel delivery system providing over 3,000 ignitions per refill.",
+      "After 6 months of daily use, it still works perfectly. The fuel efficiency is incredible, and I haven't had to refill nearly as often as expected.",
     icon: "🔥",
     color: "from-red-500/20 via-pink-500/20 to-rose-500/20",
     glow: "shadow-red-500/20",
@@ -63,11 +63,11 @@ const specs = [
   },
   {
     id: 4,
-    title: "Lifetime",
-    subtitle: "Warranty",
+    title: "Emily K.",
+    subtitle: "Verified Buyer",
     description:
-      "Comprehensive coverage for the lifetime of the original owner.",
-    icon: "🛡️",
+      "The customer service was exceptional when I had a question. The lifetime warranty gives me complete confidence in my purchase. Truly premium quality.",
+    icon: "💎",
     color: "from-green-500/20 via-emerald-500/20 to-teal-500/20",
     glow: "shadow-green-500/20",
     position: { x: 15, y: 18, z: 4 },
@@ -75,10 +75,10 @@ const specs = [
 ];
 
 const stats = [
-  { value: 100, label: "Years", suffix: "+" },
-  { value: 50, label: "Pieces", suffix: "" },
-  { value: 2, label: "Designs", suffix: "" },
-  { value: "∞", label: "Quality", suffix: "" },
+  { value: 4.9, label: "Rating", suffix: "★" },
+  { value: 2500, label: "Reviews", suffix: "+" },
+  { value: 98, label: "Satisfied", suffix: "%" },
+  { value: 100, label: "Authentic", suffix: "%" },
 ];
 
 const decorativeOrbs = [
@@ -289,7 +289,7 @@ export default function FloatingSpecs() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-text-secondary/70 block mb-4 md:mb-6"
               >
-                Specifications
+                Testimonials
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
@@ -298,9 +298,9 @@ export default function FloatingSpecs() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter leading-tight"
               >
-                Built to{" "}
+                Loved by{" "}
                 <span className="bg-gradient-to-r from-text-primary via-text-secondary to-text-primary bg-clip-text text-transparent">
-                  Perfection
+                  Thousands
                 </span>
               </motion.h2>
             </motion.div>
@@ -343,7 +343,7 @@ export default function FloatingSpecs() {
             {specs.map((spec, index) => (
               <motion.div
                 key={spec.id}
-                className="spec-float absolute cursor-pointer z-10"
+                className="spec-float absolute cursor-pointer z-10 -mt-32"
                 style={{
                   left: `calc(32% + ${spec.position.x}%)`,
                   top: `calc(32% + ${spec.position.y}%)`,

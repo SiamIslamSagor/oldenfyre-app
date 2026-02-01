@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TextReveal from "@/components/animations/TextReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
  * FinalCTA - Final Call to Action Section
@@ -79,18 +80,25 @@ export default function FinalCTA() {
         {/* Main Content */}
         <ScrollReveal direction="up" delay={0.1}>
           <div className="max-w-4xl mx-auto">
-            {/* Opening Statement */}
-            <p className="text-sm md:text-base uppercase tracking-[0.3em] text-text-secondary mb-8">
-              The Collection Awaits
-            </p>
-
-            {/* Main Headline */}
-            <TextReveal
-              delay={0.2}
-              className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter mb-8 block"
-            >
-              Begin Your Legacy
-            </TextReveal>
+            <BottomToTopReveal className="">
+              <motion.div
+                initial={{ opacity: 0, y: 120 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+                className="text-center"
+              >
+                <span className="text-sm md:text-base uppercase tracking-[0.3em] text-text-secondary mb-8">
+                  The Collection Awaits
+                </span>
+                <TextReveal
+                  delay={0.2}
+                  className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter mb-8 block"
+                >
+                  Begin Your Legacy
+                </TextReveal>
+              </motion.div>
+            </BottomToTopReveal>
 
             {/* Supporting Text */}
             <motion.p

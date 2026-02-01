@@ -11,6 +11,7 @@ import {
 import { gsap } from "gsap";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
  * InteractiveFocus - Interactive Experience Section
@@ -127,18 +128,27 @@ export default function InteractiveFocus() {
 
       <motion.div style={{ opacity, scale }} className="container px-4">
         {/* Section Header */}
-        <ScrollReveal direction="up" delay={0.1} className="text-center mb-24">
-          <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-            Experience
-          </span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter mb-6">
-            Feel the Craft
-          </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto font-light">
-            Interact with the collection. Discover the details that make each
-            piece extraordinary.
-          </p>
-        </ScrollReveal>
+
+        <BottomToTopReveal className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 120 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-center"
+          >
+            <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
+              Experience
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter mb-6">
+              Feel the Craft
+            </h2>
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto font-light">
+              Interact with the collection. Discover the details that make each
+              piece extraordinary.
+            </p>
+          </motion.div>
+        </BottomToTopReveal>
 
         {/* Interactive Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">

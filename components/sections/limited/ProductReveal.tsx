@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
  * ProductReveal - Limited Edition Product Showcase
@@ -92,18 +93,26 @@ export default function ProductReveal() {
 
       <motion.div style={{ opacity, scale }} className="container px-4">
         {/* Section Header */}
-        <ScrollReveal direction="up" delay={0.1} className="text-center mb-24">
-          <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-            The Collection
-          </span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter mb-6">
-            Two Masterpieces
-          </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto font-light">
-            Each piece is numbered, signed, and accompanied by a certificate of
-            authenticity.
-          </p>
-        </ScrollReveal>
+        <BottomToTopReveal className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 120 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-center"
+          >
+            <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
+              The Collection
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter mb-6">
+              Two Masterpieces
+            </h2>
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto font-light">
+              Each piece is numbered, signed, and accompanied by a certificate
+              of authenticity.
+            </p>
+          </motion.div>
+        </BottomToTopReveal>
 
         {/* Product Grid */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
