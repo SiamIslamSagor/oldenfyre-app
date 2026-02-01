@@ -11,47 +11,52 @@ import { gsap } from "gsap";
 import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 
 /**
- * MorphingGallery - Transition Effects Gallery
+ * MorphingGallery - Product Showcase Gallery
  *
  * Awwwards-winning approach with:
- * - Auto-playing morphing gallery
+ * - Auto-playing product image gallery
  * - Smooth transition effects
  * - Parallax image movements
  * - Text overlay animations
  * - Interactive navigation
+ * - Optimized aspect ratios for product display
  */
 const galleryItems = [
   {
     id: 1,
-    title: "The Spark",
-    subtitle: "Where it begins",
-    description: "Every masterpiece starts with a single spark of inspiration",
-    icon: "✨",
-    color: "from-amber-500/20 to-orange-500/20",
+    title: "Premium Design",
+    subtitle: "Elegant Aesthetics",
+    description:
+      "Crafted with meticulous attention to detail, featuring sleek lines and premium materials that complement any modern space",
+    image: "/slider-img1.jpeg",
+    color: "from-amber-500/10 to-orange-500/10",
   },
   {
     id: 2,
-    title: "The Craft",
-    subtitle: "Hours of dedication",
-    description: "47 hours of hand-polishing for perfect finish",
-    icon: "🔨",
-    color: "from-blue-500/20 to-indigo-500/20",
+    title: "Superior Craftsmanship",
+    subtitle: "Handcrafted Excellence",
+    description:
+      "Each piece is meticulously crafted by skilled artisans, ensuring unparalleled quality and attention to every detail",
+    image: "/slider-img2.jpeg",
+    color: "from-blue-500/10 to-indigo-500/10",
   },
   {
     id: 3,
-    title: "The Flame",
-    subtitle: "Eternal warmth",
-    description: "Precision ignition system for reliable performance",
-    icon: "🔥",
-    color: "from-red-500/20 to-pink-500/20",
+    title: "Innovative Technology",
+    subtitle: "Smart Features",
+    description:
+      "Advanced engineering meets intuitive design, delivering exceptional performance with effortless operation",
+    image: "/slider-img3.jpeg",
+    color: "from-red-500/10 to-pink-500/10",
   },
   {
     id: 4,
-    title: "The Legacy",
-    subtitle: "Passed down",
-    description: "Built to last generations, not just years",
-    icon: "🏛️",
-    color: "from-purple-500/20 to-violet-500/20",
+    title: "Timeless Quality",
+    subtitle: "Built to Last",
+    description:
+      "Constructed from premium materials with durability in mind, creating a legacy piece that stands the test of time",
+    image: "/slider-img4.jpeg",
+    color: "from-purple-500/10 to-violet-500/10",
   },
 ];
 
@@ -159,10 +164,10 @@ export default function MorphingGallery() {
             className="text-center "
           >
             <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-              The Journey
+              Product Showcase
             </span>
             <h2 className="text-4xl md:text-6xl font-light tracking-tighter">
-              From Spark to Legacy
+              Discover Excellence
             </h2>
           </motion.div>
         </BottomToTopReveal>
@@ -170,7 +175,7 @@ export default function MorphingGallery() {
         {/* Gallery Container */}
         <div className="relative max-w-5xl mx-auto">
           {/* Main Display */}
-          <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-background-secondary/10 border border-border-color/20">
+          <div className="relative aspect-[4/3] md-aspect-[16/9] overflow-hidden bg-background-secondary/10 border border-border-color/20">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentItem.id}
@@ -182,24 +187,29 @@ export default function MorphingGallery() {
               >
                 {/* Background Gradient */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${currentItem.color} opacity-50`}
+                  className={`absolute inset-0 bg-gradient-to-br ${currentItem.color} opacity-30`}
                 />
 
-                {/* Icon */}
+                {/* Product Image */}
                 <motion.div
-                  className="gallery-float relative z-10 text-9xl md:text-[12rem]"
-                  animate={{ rotate: [0, 5, -5, 0] }}
+                  className="gallery-float relative z-10 w-full h-full"
+                  animate={{ scale: [1, 1.02, 1] }}
                   transition={{
-                    duration: 4,
+                    duration: 1,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
                 >
-                  {currentItem.icon}
+                  <img
+                    src={currentItem.image}
+                    alt={currentItem.title}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
                 </motion.div>
 
                 {/* Text Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-background-primary via-background-primary/80 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-background-primary via-background-primary/80 to-transparent z-50">
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
