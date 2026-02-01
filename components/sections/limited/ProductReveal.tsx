@@ -6,7 +6,9 @@ import { gsap } from "gsap";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
 import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
-
+import LimitedEditionAsh from "../../../public/le-ash.jpeg";
+import LimitedEditionBlack from "../../../public/le-black.jpeg";
+import ParallaxImage from "@/components/animations/ParallaxImage";
 /**
  * ProductReveal - Limited Edition Product Showcase
  *
@@ -25,30 +27,33 @@ interface Product {
   edition: string;
   description: string;
   price: string;
+  offer_price: string;
   color: string;
   year: string;
 }
 
 const products: Product[] = [
   {
-    id: "obsidian",
-    name: "Obsidian Noir",
+    id: "ED-I",
+    name: "Tribal Cross Matte",
     edition: "I",
     description:
       "Handcrafted from volcanic glass, each piece tells a story of fire and earth. The deep black finish captures light like no other material.",
-    price: "$2,400",
+    offer_price: "2,199 BDT",
+    price: "2,499 BDT",
     color: "#1a1a1a",
-    year: "2024",
+    year: "2026",
   },
   {
-    id: "ember",
-    name: "Ember Glow",
-    edition: "I",
+    id: "ED-II",
+    name: "Tribal Cross Glossy",
+    edition: "II",
     description:
       "Inspired by the eternal flame, this piece features a unique copper-infused finish that develops a patina unique to each owner.",
-    price: "$2,800",
+    offer_price: "2,199 BDT",
+    price: "2,499 BDT",
     color: "#b87333",
-    year: "2024",
+    year: "2026",
   },
 ];
 
@@ -134,9 +139,9 @@ export default function ProductReveal() {
                 {/* Product Card */}
                 <div className="relative bg-background-primary border border-border-color/30 overflow-hidden">
                   {/* Product Visual */}
-                  <div className="aspect-[4/5] relative overflow-hidden bg-gradient-to-b from-background-secondary/20 to-background-primary">
+                  <div className="aspect-[4/4] relative overflow-hidden bg-gradient-to-b from-background-secondary/20 to-background-primary">
                     {/* Placeholder for Product Image */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    {/* <div className="absolute inset-0 flex items-center justify-center">
                       <motion.div
                         className="w-48 h-48 rounded-full border-4 border-border-color/50 flex items-center justify-center"
                         whileHover={{ scale: 1.05, rotate: 5 }}
@@ -146,7 +151,18 @@ export default function ProductReveal() {
                           {index === 0 ? "⚫" : "🔥"}
                         </span>
                       </motion.div>
-                    </div>
+                    </div> */}
+                    {/* Image Side */}
+                    <ScrollReveal direction="left" className="relative">
+                      <div className="aspect-4/4 overflow-hidden glow">
+                        <ParallaxImage
+                          src={index === 0 ? "/le-ash.jpeg" : "/le-black.jpeg"}
+                          alt="Vintage Lighter"
+                          speed={0.3}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </ScrollReveal>
 
                     {/* Edition Badge */}
                     <div className="absolute top-6 left-6">
@@ -188,7 +204,12 @@ export default function ProductReveal() {
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-2xl font-light">{product.price}</p>
+                        <p className="text-2xl font-light">
+                          {product.offer_price}
+                        </p>
+                        <span className="line-through text-red-600">
+                          {product.price}
+                        </span>
                       </div>
                     </div>
 
@@ -213,10 +234,6 @@ export default function ProductReveal() {
                     </MagneticButton>
                   </div>
                 </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 border border-border-color/30 product-reveal-line" />
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 border border-border-color/30 product-reveal-line" />
               </motion.div>
             </ScrollReveal>
           ))}
@@ -227,18 +244,12 @@ export default function ProductReveal() {
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-background-primary border border-border-color/30">
             <div className="w-2 h-2 bg-text-primary rounded-full" />
             <p className="text-sm text-text-secondary font-light">
-              Only 50 pieces of each design will ever be produced
+              Only 46 pieces were imported to Bangladesh for the first time.
             </p>
             <div className="w-2 h-2 bg-text-primary rounded-full" />
           </div>
         </ScrollReveal>
       </motion.div>
-
-      {/* Background Decorative Elements */}
-      <div className="absolute top-1/4 left-0 w-px h-64 bg-border-color/20" />
-      <div className="absolute top-1/4 right-0 w-px h-64 bg-border-color/20" />
-      <div className="absolute bottom-1/4 left-1/4 w-64 h-px bg-border-color/20" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-px bg-border-color/20" />
     </section>
   );
 }

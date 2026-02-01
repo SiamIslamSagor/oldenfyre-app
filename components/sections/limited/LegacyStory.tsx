@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TextReveal from "@/components/animations/TextReveal";
 import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
+import ParallaxImage from "@/components/animations/ParallaxImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -163,18 +164,23 @@ export default function LegacyStory() {
                 className={`lg:col-span-1 ${section.imagePosition === "right" ? "lg:order-2" : ""}`}
               >
                 <ScrollReveal direction="up" delay={0.2 + index * 0.1}>
-                  <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-background-secondary/30 to-background-primary">
-                    {/* Placeholder Content */}
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-center">
-                        <span className="text-6xl mb-4 block">
-                          {index === 0 ? "🏛️" : index === 1 ? "🔥" : "✨"}
-                        </span>
-                        <p className="text-xs uppercase tracking-widest text-text-secondary">
-                          {section.title}
-                        </p>
+                  <div className="relative aspect-[4/4] overflow-hidden bg-gradient-to-br from-background-secondary/30 to-background-primary">
+                    <ScrollReveal direction="left" className="relative">
+                      <div className="aspect-4/4 overflow-hidden glow">
+                        <ParallaxImage
+                          src={
+                            index === 0
+                              ? "/matte-s1.jpeg"
+                              : index === 1
+                                ? "/matte-s2.jpeg"
+                                : "/matte-s3.jpeg"
+                          }
+                          alt="Vintage Lighter"
+                          speed={0.3}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                    </div>
+                    </ScrollReveal>
 
                     {/* Decorative Frame */}
                     <div className="absolute inset-4 border border-border-color/20 pointer-events-none" />
