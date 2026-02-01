@@ -12,34 +12,34 @@ import ParallaxImage from "@/components/animations/ParallaxImage";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * LegacyStory - Emotional Narrative Section
+ * LegacyStory - Product Description Section
  *
- * Purpose: Tell the story behind the limited edition collection,
- * creating emotional connection and emphasizing heritage.
+ * Purpose: Describe the product in 3 clear steps,
+ * highlighting key features and benefits.
  *
  * Design Approach:
  * - Editorial-style layout with mixed media
  * - Cinematic scroll-based storytelling
  * - Parallax images for depth
- * - Typography-focused design for emotional impact
+ * - Typography-focused design for visual impact
  */
 const storySections = [
   {
-    year: "1924",
-    title: "The Beginning",
-    text: "In a small workshop in Paris, our founder discovered the perfect balance between form and function. Each lighter was not just a tool, but a companion through life's moments.",
+    year: "STEP 01",
+    title: "Precision Engineering",
+    text: "Every Oldenfyre lighter is crafted with meticulous attention to detail. Our precision engineering ensures a perfect flame every time, combining advanced technology with traditional craftsmanship to create a reliable ignition system that never fails.",
     imagePosition: "left",
   },
   {
-    year: "1960",
-    title: "The Golden Era",
-    text: "A time of innovation and artistry. Our craftsmen pushed the boundaries of what was possible, creating pieces that would become heirlooms passed down through generations.",
+    year: "STEP 02",
+    title: "Premium Materials",
+    text: "We source only the finest materials from around the world. From aerospace-grade metals to hand-finished surfaces, each component is selected for its durability and aesthetic appeal, resulting in a lighter that looks as stunning as it performs.",
     imagePosition: "right",
   },
   {
-    year: "2024",
-    title: "The Legacy Continues",
-    text: "A century later, we honor our heritage with two masterpieces that embody everything Oldenfyre stands for: timeless elegance, uncompromising quality, and the eternal flame of craftsmanship.",
+    year: "STEP 03",
+    title: "Incredible Finishing",
+    text: "Our design philosophy balances modern innovation with classic elegance. Each piece is created to be both a functional tool and a statement accessory – a companion that elevates your everyday moments and stands the test of time.",
     imagePosition: "left",
   },
 ];
@@ -98,10 +98,10 @@ export default function LegacyStory() {
           className="text-center"
         >
           <span className="text-xs uppercase tracking-[0.35em] text-text-secondary block mb-4">
-            Our Heritage
+            The Oldenfyre Experience
           </span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter mb-6">
-            A Century of Fire
+            Crafted in Three Steps
           </h2>
         </motion.div>
       </BottomToTopReveal>
@@ -197,7 +197,7 @@ export default function LegacyStory() {
         <ScrollReveal direction="up" delay={0.4}>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-text-primary">
-              Every piece carries a story. Every flame ignites a memory.
+              Experience the perfect balance of form and function.
             </p>
             <div className="mt-8 flex justify-center">
               <div className="w-24 h-px bg-text-primary/30" />
