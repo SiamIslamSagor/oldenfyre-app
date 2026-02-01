@@ -15,7 +15,7 @@ export default function MagneticButton({
   children,
   className = "",
   onClick,
-  magneticStrength = 0.5,
+  magneticStrength = 0.25,
   springStiffness = 0.1,
   springDamping = 0.55,
 }: MagneticButtonProps) {
