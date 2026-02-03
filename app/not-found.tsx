@@ -112,7 +112,7 @@ export default function NotFoundPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[var(--background-primary)] text-[var(--text-primary)] overflow-hidden">
+    <main className="min-h-screen bg-background-primary text-text-primary overflow-hidden">
       <section
         ref={sectionRef}
         className="relative h-screen w-screen overflow-hidden flex items-center justify-center"
@@ -217,11 +217,11 @@ export default function NotFoundPage() {
               onClick={handleGoHome}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative px-8 py-4 bg-[var(--text-primary)] text-[var(--background-primary)] font-light tracking-widest uppercase text-sm overflow-hidden transition-all duration-300 hover:shadow-lg"
+              className="group relative px-8 py-4 bg-text-primary text-background-primary font-light tracking-widest uppercase text-sm overflow-hidden transition-all duration-300 hover:shadow-lg"
             >
               <span className="relative z-10">Go Home</span>
               <motion.div
-                className="absolute inset-0 bg-[var(--text-secondary)]"
+                className="absolute inset-0 bg-text-secondary"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
@@ -232,7 +232,7 @@ export default function NotFoundPage() {
               onClick={handleGoBack}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative px-8 py-4 border border-[var(--text-primary)] text-[var(--text-primary)] font-light tracking-widest uppercase text-sm overflow-hidden transition-all duration-300 hover:bg-[var(--text-primary)] hover:text-[var(--background-primary)]"
+              className="group relative px-8 py-4 border border-text-primary text-text-primary font-light tracking-widest uppercase text-sm overflow-hidden transition-all duration-300 hover:bg-text-primary hover:text-background-primary"
             >
               <span className="relative z-10">Go Back</span>
             </motion.button>

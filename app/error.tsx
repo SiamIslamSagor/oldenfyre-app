@@ -30,7 +30,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="min-h-screen bg-[var(--background-primary)] text-[var(--text-primary)] overflow-hidden flex items-center justify-center">
+    <main className="min-h-screen bg-background-primary text-text-primary overflow-hidden flex items-center justify-center">
       <div className="relative w-full h-screen flex items-center justify-center">
         {/* Dynamic Background */}
         <div className="absolute inset-0 bg-background-primary">
@@ -65,9 +65,9 @@ export default function Error({
           {/* Error Icon */}
           <div className="mb-8 flex justify-center">
             <div className="relative">
-              <div className="w-24 h-24 rounded-full border-2 border-[var(--text-primary)]/20 flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full border-2 border-text-primary/20 flex items-center justify-center">
                 <svg
-                  className="w-12 h-12 text-[var(--text-primary)]"
+                  className="w-12 h-12 text-text-primary"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -80,7 +80,7 @@ export default function Error({
                   />
                 </svg>
               </div>
-              <div className="absolute inset-0 rounded-full border-2 border-[var(--text-primary)]/10 animate-ping" />
+              <div className="absolute inset-0 rounded-full border-2 border-text-primary/10 animate-ping" />
             </div>
           </div>
 
@@ -102,21 +102,21 @@ export default function Error({
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             <button
               onClick={handleGoHome}
-              className="px-8 py-4 bg-[var(--text-primary)] text-[var(--background-primary)] font-light tracking-widest uppercase text-sm transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+              className="px-8 py-4 bg-text-primary text-background-primary font-light tracking-widest uppercase text-sm transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
             >
               Go Home
             </button>
 
             <button
               onClick={handleGoBack}
-              className="px-8 py-4 border border-[var(--text-primary)] text-[var(--text-primary)] font-light tracking-widest uppercase text-sm transition-all duration-300 hover:bg-[var(--text-primary)] hover:text-[var(--background-primary)] hover:scale-105 active:scale-95"
+              className="px-8 py-4 border border-text-primary text-text-primary font-light tracking-widest uppercase text-sm transition-all duration-300 hover:bg-text-primary hover:text-background-primary hover:scale-105 active:scale-95"
             >
               Go Back
             </button>
 
             <button
               onClick={reset}
-              className="px-8 py-4 border border-[var(--text-primary)]/30 text-[var(--text-secondary)] font-light tracking-widest uppercase text-sm transition-all duration-300 hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] hover:scale-105 active:scale-95"
+              className="px-8 py-4 border border-text-primary/30 text-text-secondary font-light tracking-widest uppercase text-sm transition-all duration-300 hover:border-text-primary hover:text-text-primary hover:scale-105 active:scale-95"
             >
               Try Again
             </button>
