@@ -315,7 +315,7 @@ export default function OrderPage() {
 
         <section
           ref={sectionRef}
-          className="relative min-h-screen flex items-center justify-center py-20"
+          className="relative mt-20 min-h-screen flex items-center justify-center py-20"
         >
           <div className="noise-overlay" />
 
@@ -442,10 +442,10 @@ export default function OrderPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background-primary text-text-primary overflow-hidden">
+    <main className="min-h-screen  bg-background-primary text-text-primary overflow-hidden">
       <Navigation />
 
-      <section ref={sectionRef} className="relative min-h-screen py-20">
+      <section ref={sectionRef} className="pt-32 relative min-h-screen py-20">
         <div className="noise-overlay" />
 
         {/* Background Glow */}
