@@ -119,7 +119,7 @@ export default function MorphingGallery() {
       if (!isPaused) {
         setCurrentIndex(prev => (prev + 1) % galleryItems.length);
       }
-    }, 4000);
+    }, 3000);
 
     return () => {
       ctx.revert();
