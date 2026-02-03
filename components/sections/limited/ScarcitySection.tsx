@@ -1,17 +1,12 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
-import { gsap } from "gsap";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-import TextReveal from "@/components/animations/TextReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { gsap } from "gsap";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * ScarcitySection - Limited Quantity & Ownership Section
@@ -55,6 +50,8 @@ const products: ProductAvailability[] = [
 
 export default function ScarcitySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
   const [selectedProduct, setSelectedProduct] = useState<string>("obsidian");
 
   const { scrollYProgress } = useScroll({
@@ -98,6 +95,10 @@ export default function ScarcitySection() {
 
     return () => ctx.revert();
   }, []);
+
+  const handleReserveNow = (productId: string) => {
+    router.push(`/order?product=${productId}`);
+  };
 
   return (
     <section
@@ -283,7 +284,10 @@ export default function ScarcitySection() {
 
         {/* CTA */}
         <ScrollReveal direction="up" delay={0.8} className="mt-24 text-center">
-          <MagneticButton className="px-12 py-5 bg-text-primary text-background-primary uppercase tracking-[0.2em] text-sm hover:bg-text-secondary transition-colors">
+          <MagneticButton
+            onClick={() => handleReserveNow("ED-I")}
+            className="px-12 py-5 bg-text-primary text-background-primary uppercase tracking-[0.2em] text-sm hover:bg-text-secondary transition-colors"
+          >
             Reserve Your Edition
           </MagneticButton>
           <p className="text-xs text-text-secondary mt-4 font-light">

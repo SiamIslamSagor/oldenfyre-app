@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import MagneticButton from "@/components/animations/MagneticButton";
+import ParallaxImage from "@/components/animations/ParallaxImage";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-import MagneticButton from "@/components/animations/MagneticButton";
-import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
-import LimitedEditionAsh from "../../../public/le-ash.jpeg";
-import LimitedEditionBlack from "../../../public/le-black.jpeg";
-import ParallaxImage from "@/components/animations/ParallaxImage";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 /**
  * ProductReveal - Limited Edition Product Showcase
  *
@@ -58,6 +57,7 @@ const products: Product[] = [
 ];
 
 export default function ProductReveal() {
+  const router = useRouter();
   const [activeProduct, setActiveProduct] = useState<string | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -88,6 +88,10 @@ export default function ProductReveal() {
 
     return () => ctx.revert();
   }, []);
+
+  const handleReserveNow = (productId: string) => {
+    router.push(`/order?product=${productId}`);
+  };
 
   return (
     <section
@@ -227,7 +231,10 @@ export default function ProductReveal() {
                     </motion.p>
 
                     {/* CTA Button */}
-                    <MagneticButton className="w-full px-6 py-4 bg-text-primary text-background-primary uppercase tracking-[0.15em] text-sm hover:bg-text-secondary transition-colors">
+                    <MagneticButton
+                      onClick={() => handleReserveNow(product.id)}
+                      className="w-full px-6 py-4 bg-text-primary text-background-primary uppercase tracking-[0.15em] text-sm hover:bg-text-secondary transition-colors"
+                    >
                       {activeProduct === product.id
                         ? "Reserve Now"
                         : "View Details"}

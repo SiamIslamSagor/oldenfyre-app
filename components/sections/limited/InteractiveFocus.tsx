@@ -1,17 +1,18 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import MagneticButton from "@/components/animations/MagneticButton";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
 import {
   motion,
-  useScroll,
-  useTransform,
   useMotionValue,
+  useScroll,
   useSpring,
+  useTransform,
 } from "framer-motion";
 import { gsap } from "gsap";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-import MagneticButton from "@/components/animations/MagneticButton";
-import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * InteractiveFocus - Interactive Experience Section
@@ -65,6 +66,7 @@ export default function InteractiveFocus() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const router = useRouter();
 
   const springConfig = { damping: 25, stiffness: 700 };
   const springX = useSpring(mouseX, springConfig);
@@ -117,6 +119,10 @@ export default function InteractiveFocus() {
     const y = e.clientY - rect.top - rect.height / 2;
     mouseX.set(x);
     mouseY.set(y);
+  };
+
+  const handleReserveNow = (productId: string) => {
+    router.push(`/order?product=${productId}`);
   };
 
   return (
@@ -281,7 +287,10 @@ export default function InteractiveFocus() {
 
         {/* Magnetic CTA */}
         <ScrollReveal direction="up" delay={0.7} className="mt-24 text-center">
-          <MagneticButton className="px-12 py-5 bg-text-primary text-background-primary uppercase tracking-[0.2em] text-sm hover:bg-text-secondary transition-colors">
+          <MagneticButton
+            onClick={() => handleReserveNow("ED-I")}
+            className="px-12 py-5 bg-text-primary text-background-primary uppercase tracking-[0.2em] text-sm hover:bg-text-secondary transition-colors"
+          >
             Start Your Journey
           </MagneticButton>
         </ScrollReveal>

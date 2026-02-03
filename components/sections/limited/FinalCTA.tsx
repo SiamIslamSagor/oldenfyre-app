@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { gsap } from "gsap";
+import MagneticButton from "@/components/animations/MagneticButton";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TextReveal from "@/components/animations/TextReveal";
-import MagneticButton from "@/components/animations/MagneticButton";
 import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { gsap } from "gsap";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 /**
  * FinalCTA - Final Call to Action Section
@@ -22,6 +23,11 @@ import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
  */
 export default function FinalCTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  const handleReserveNow = () => {
+    router.push("/order");
+  };
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -120,7 +126,10 @@ export default function FinalCTA() {
               transition={{ duration: 1, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             >
-              <MagneticButton className="px-14 py-5 bg-text-primary text-background-primary uppercase tracking-[0.2em] text-sm hover:bg-text-secondary transition-colors">
+              <MagneticButton
+                onClick={handleReserveNow}
+                className="px-14 py-5 bg-text-primary text-background-primary uppercase tracking-[0.2em] text-sm hover:bg-text-secondary transition-colors cursor-pointer"
+              >
                 Reserve Now
               </MagneticButton>
               <MagneticButton className="px-14 py-5 border border-border-color text-text-primary uppercase tracking-[0.2em] text-sm hover:bg-background-secondary transition-colors">
