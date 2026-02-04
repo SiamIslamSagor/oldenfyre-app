@@ -4,9 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import { ThemeProvider } from "@/components/ThemeContext";
-import dynamic from "next/dynamic";
-
-const FacebookPixel = dynamic(import("../components/facebook/FacebookPixel"));
+import FacebookPixelClient from "@/components/facebook/FacebookPixelClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,7 +44,7 @@ export default function RootLayout({
         <ThemeProvider>
           <CustomCursor />
           <SmoothScroll>
-            <FacebookPixel />
+            <FacebookPixelClient />
             {children}
           </SmoothScroll>
         </ThemeProvider>

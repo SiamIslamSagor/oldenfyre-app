@@ -1,13 +1,17 @@
-import Image from "next/image";
+"use client";
+
 import Script from "next/script";
-import React from "react";
+
+const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID as string;
 
 const FacebookPixel = () => {
+  if (!PIXEL_ID) return null;
+
   return (
     <>
       <Script
-        strategy="afterInteractive"
         id="facebook-pixel"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -18,20 +22,11 @@ const FacebookPixel = () => {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID);
+            fbq('init', '${PIXEL_ID}');
             fbq('track', 'PageView');
-    `,
+          `,
         }}
-      ></Script>
-      <noscript>
-        <Image
-          height="1"
-          width="1"
-          alt="facebook-pixel"
-          style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}&ev=PageView&noscript=1`}
-        />
-      </noscript>{" "}
+      />
     </>
   );
 };
