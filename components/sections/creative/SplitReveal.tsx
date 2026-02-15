@@ -12,6 +12,7 @@ import { gsap } from "gsap";
 import MagneticButton from "@/components/animations/MagneticButton";
 import Image from "next/image";
 import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
+import { useRouter } from "next/navigation";
 
 /**
  * SplitReveal - Modern Product Reveal Section
@@ -23,28 +24,67 @@ import BottomToTopReveal from "@/components/utils/BottomToTopReveal";
  * - Smooth scroll animations
  * - Interactive state management
  */
-const products = [
+/* const products = [
   {
-    id: "obsidian",
-    name: "Obsidian Noir",
+    id: "1",
+    name: "Tribal Cross Matte",
     edition: "001/050",
     price: "$2,400",
-    description: "Volcanic glass meets timeless design",
+    description:
+      "Handcrafted from volcanic glass, each piece tells a story of fire and earth. The deep black finish captures light like no other material.",
     color: "#1a1a1a",
     icon: "⚫",
     image:
       "https://images.unsplash.com/photo-1616469829941-c7200edec809?w=500&auto=format&fit=crop&q=80",
   },
   {
-    id: "ember",
-    name: "Ember Glow",
+    id: "2",
+    name: "Tribal Cross Glossy",
     edition: "001/050",
     price: "$2,800",
-    description: "Copper-infused with eternal warmth",
+    description: "Inspired by the eternal flame, this piece features a unique copper-infused finish that develops a patina unique to each owner.",
     color: "#b87333",
     icon: "🔥",
     image:
       "https://images.unsplash.com/photo-1616469829941-c7200edec809?w=500&auto=format&fit=crop&q=80",
+  },
+]; */
+interface Product {
+  id: string;
+  name: string;
+  edition: string;
+  description: string;
+  price: string;
+  offer_price: string;
+  color: string;
+  year: string;
+  image: string;
+}
+
+const products: Product[] = [
+  {
+    id: "ED-I",
+    name: "Tribal Cross Matte",
+    edition: "I",
+    description:
+      "Handcrafted from volcanic glass, each piece tells a story of fire and earth. The deep black finish captures light like no other material.",
+    offer_price: "2,199 BDT",
+    price: "2,499 BDT",
+    color: "#1a1a1a",
+    year: "2026",
+    image: "/le-ash.jpeg",
+  },
+  {
+    id: "ED-II",
+    name: "Tribal Cross Glossy",
+    edition: "II",
+    description:
+      "Inspired by the eternal flame, this piece features a unique copper-infused finish that develops a patina unique to each owner.",
+    offer_price: "2,199 BDT",
+    price: "2,499 BDT",
+    color: "#b87333",
+    year: "2026",
+    image: "/le-black.jpeg",
   },
 ];
 
@@ -52,6 +92,7 @@ export default function SplitReveal() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeProduct, setActiveProduct] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"split" | "stack">("split");
+  const router = useRouter();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -144,6 +185,10 @@ export default function SplitReveal() {
     return () => ctx.revert();
   }, []);
 
+  const handleReserveNow = (productId: string) => {
+    router.push(`/order?product=${productId}`);
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -167,36 +212,6 @@ export default function SplitReveal() {
             </h2>
           </motion.div>
         </BottomToTopReveal>
-
-        {/* View Toggle */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="flex justify-center gap-4 mb-16"
-        >
-          <button
-            onClick={() => setViewMode("split")}
-            className={`px-6 py-3 text-xs uppercase tracking-wider transition-all duration-300 ${
-              viewMode === "split"
-                ? "bg-text-primary text-background-primary"
-                : "bg-background-secondary/30 text-text-secondary hover:bg-background-secondary/50"
-            }`}
-          >
-            Split View
-          </button>
-          <button
-            onClick={() => setViewMode("stack")}
-            className={`px-6 py-3 text-xs uppercase tracking-wider transition-all duration-300 ${
-              viewMode === "stack"
-                ? "bg-text-primary text-background-primary"
-                : "bg-background-secondary/30 text-text-secondary hover:bg-background-secondary/50"
-            }`}
-          >
-            Stack View
-          </button>
-        </motion.div>
 
         {/* Products Grid */}
         <div
@@ -256,11 +271,11 @@ export default function SplitReveal() {
                   {/* Product Image */}
                   <div className="product-image-reveal w-full mb-6 overflow-hidden relative">
                     <Image
-                      width={1000}
-                      height={1000}
+                      width={496}
+                      height={496}
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover"
+                      className="w-full max-h-124 h-full object-cover"
                     />
                   </div>
 
@@ -301,11 +316,11 @@ export default function SplitReveal() {
                       transition={{ duration: 0.2, delay: 0.9 }}
                       className="flex items-center gap-4"
                     >
-                      <span className="text-2xl md:text-3xl font-light">
+                      <p className="text-2xl font-light">
+                        {product.offer_price}
+                      </p>
+                      <span className="line-through text-red-600">
                         {product.price}
-                      </span>
-                      <span className="text-sm text-text-secondary">
-                        {product.edition}
                       </span>
                     </motion.div>
                     {/* </div> */}
@@ -318,7 +333,10 @@ export default function SplitReveal() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.7 }}
                   >
-                    <MagneticButton className="w-full px-8 py-4 bg-text-primary text-background-primary uppercase tracking-[0.15em] text-sm hover:bg-text-secondary transition-colors">
+                    <MagneticButton
+                      onClick={() => handleReserveNow(product.id)}
+                      className="w-full px-8 py-4 bg-text-primary text-background-primary uppercase tracking-[0.15em] text-sm hover:bg-text-secondary transition-colors"
+                    >
                       {activeProduct === product.id
                         ? "View Details"
                         : "Explore"}
@@ -357,19 +375,6 @@ export default function SplitReveal() {
           className="float-element absolute bottom-[30%] left-[20%] w-3 h-3 border-2 border-border-color/20 rounded-full"
           style={{ animationDelay: "2s" }}
         />
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="text-center mt-20"
-        >
-          <MagneticButton className="px-12 py-5 bg-text-primary text-background-primary uppercase tracking-[0.2em] text-sm hover:bg-text-secondary transition-colors">
-            View Full Collection
-          </MagneticButton>
-        </motion.div>
       </motion.div>
 
       {/* Background Gradient */}

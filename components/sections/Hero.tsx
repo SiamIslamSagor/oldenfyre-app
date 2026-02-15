@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import TextReveal from "../animations/TextReveal";
 import MagneticButton from "../animations/MagneticButton";
+import Link from "next/link";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -75,12 +76,16 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1.8 }}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <MagneticButton className="px-12 py-4 bg-text-primary text-background-primary uppercase tracking-widest text-sm hover:bg-text-secondary transition-colors">
-            Explore Collection
-          </MagneticButton>
-          <MagneticButton className="px-12 py-4 border border-border-color text-text-primary uppercase tracking-widest text-sm hover:bg-background-secondary transition-colors">
-            Our Story
-          </MagneticButton>
+          <Link href={"/limited-edition"}>
+            <MagneticButton className="px-12 py-4 bg-text-primary text-background-primary uppercase tracking-widest text-sm hover:bg-text-secondary transition-colors">
+              Explore Collection
+            </MagneticButton>
+          </Link>
+          <Link href={'#story'}>
+            <MagneticButton className="px-12 py-4 border border-border-color text-text-primary uppercase tracking-widest text-sm hover:bg-background-secondary transition-colors">
+              Our Story
+            </MagneticButton>
+          </Link>
         </motion.div>
       </div>
 

@@ -108,44 +108,7 @@ export default function Contact() {
           </form>
         </ScrollReveal>
 
-        {/* Contact Info */}
-        <ScrollReveal
-          delay={0.4}
-          className="mt-20 md:mt-24 pt-16 md:pt-20 border-t border-border-color"
-        >
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12 text-center">
-            <div className="space-y-4 px-4">
-              <div className="text-text-secondary text-sm uppercase tracking-widest">
-                Visit Us
-              </div>
-              <p className="text-text-secondary font-light">
-                123 Heritage Lane
-                <br />
-                London, UK SW1A 1AA
-              </p>
-            </div>
-            <div className="space-y-4 px-4">
-              <div className="text-text-secondary text-sm uppercase tracking-widest">
-                Call Us
-              </div>
-              <p className="text-text-secondary font-light">
-                +44 20 7123 4567
-                <br />
-                Mon - Fri, 9am - 6pm
-              </p>
-            </div>
-            <div className="space-y-4 px-4">
-              <div className="text-text-secondary text-sm uppercase tracking-widest">
-                Email Us
-              </div>
-              <p className="text-text-secondary font-light">
-                hello@oldenfyre.com
-                <br />
-                support@oldenfyre.com
-              </p>
-            </div>
-          </div>
-        </ScrollReveal>
+       
       </div>
     </section>
   );
