@@ -15,7 +15,7 @@ export default function Story() {
           <ScrollReveal direction="left" className="relative">
             <div className="aspect-4/5 overflow-hidden glow">
               <ParallaxImage
-                src="https://images.unsplash.com/photo-1616469829941-c7200edec809?w=800&auto=format&fit=crop&q=80"
+                src="/le-ash.jpeg"
                 alt="Vintage Lighter"
                 speed={0.3}
                 className="w-full h-full object-cover"
@@ -28,32 +28,33 @@ export default function Story() {
           <div className="space-y-8 px-4">
             <ScrollReveal delay={0.2}>
               <span className="text-text-secondary uppercase tracking-[0.3em] text-sm">
-                Our Heritage
+                Limited Edition
               </span>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
               <h2 className="text-4xl md:text-6xl font-light tracking-tight leading-tight">
-                A Legacy of
-                <span className="block text-gradient">Excellence</span>
+                Own a Piece of
+                <span className="block text-gradient">History</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.4}>
               <p className="text-lg text-text-secondary leading-relaxed font-light">
-                Since 1924, Oldenfyre has been crafting lighters that transcend
-                time. Each piece is a testament to artistry and dedication of
-                our master craftsmen, who have passed down their secrets through
-                generations.
+                Only 100 pieces of our exclusive limited edition lighter will
+                ever be crafted. Each one is individually numbered and comes
+                with a certificate of authenticity, making it a true
+                collector&apos;s item that appreciates in value over time.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.5}>
               <p className="text-lg text-text-secondary leading-relaxed font-light">
-                Our vintage collection represents the pinnacle of mid-century
-                design, where form meets function in perfect harmony. Every
-                lighter tells a story, carries memories, and ignites moments
-                that last forever.
+                Hand-finished with premium materials and featuring our signature
+                dual-flame technology, this masterpiece combines timeless
+                elegance with modern reliability. The perfect gift for
+                discerning collectors or a statement piece for your personal
+                collection.
               </p>
             </ScrollReveal>
 
@@ -64,15 +65,15 @@ export default function Story() {
                     100
                   </div>
                   <div className="text-sm uppercase tracking-widest text-text-secondary">
-                    Years of Craft
+                    Pieces Only
                   </div>
                 </div>
                 <div className="px-4">
                   <div className="text-4xl font-light text-text-primary">
-                    50K+
+                    Lifetime
                   </div>
                   <div className="text-sm uppercase tracking-widest text-text-secondary">
-                    Pieces Crafted
+                    Warranty
                   </div>
                 </div>
               </div>
