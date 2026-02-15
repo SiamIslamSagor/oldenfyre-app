@@ -80,10 +80,10 @@ export default function Navigation() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background-primary/95 backdrop-blur-md py-12 px-6">
-          {["Collection", "Story", "Craftsmanship", "Contact"].map(item => (
+          {["Limited-edition", "Collection", "Story", "Contact"].map(item => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`/${item.toLowerCase()}`}
               className="block py-4 text-lg uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors px-4"
               onClick={() => setMenuOpen(false)}
             >
